@@ -1,0 +1,8 @@
+---
+- hosts: debiancible
+  become: true
+
+  roles:
+    - python
+    - apache
+    - deploy-application

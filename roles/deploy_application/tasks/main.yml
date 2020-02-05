@@ -1,0 +1,24 @@
+---
+- name: Create application directory
+  file: path=/data state=directory
+
+- name: Get application content
+  shell: ls -1 /data
+  register: content
+
+- name: Delete all file in path
+  file: path=/data/{{item}} state=absent
+  with_items: "{{content.stdout_lines}}"
+
+- name: Deploy application
+  copy: src=student_age.json dest=/data/student_age.json mode=0777
+  copy: src=student_age.py dest=/data/student_age.py mode=0777
+
+- name: Run a script student_age.py
+  script: /data/student_age.py
+  args:
+    executable: python3
+
+- name: Test application
+  notify:
+   - Test application

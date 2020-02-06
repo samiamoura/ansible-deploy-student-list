@@ -1,8 +1,11 @@
 ---
 - hosts: debiancible
   become: true
+  
+  vars_files:
+    - "secrets/password.yml"
 
   roles:
     - python
     - apache
-    - deploy-application
+    - deploy_application

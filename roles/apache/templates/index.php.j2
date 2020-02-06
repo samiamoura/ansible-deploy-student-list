@@ -18,8 +18,8 @@
               if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit']))
               {
               $student_name = $_POST['student_name'];
-              $username = toto;
-              $password = python;
+              $username = {{ login_app  }};
+              $password = {{ password_app  }};
               if ( empty($username) ) $username = 'fake_username';
               if ( empty($password) ) $password = 'fake_password';
               $context = stream_context_create(array(

@@ -1,4 +1,4 @@
-#Contents of /etc/systemd/system/myservice.service
+#Contents of /etc/systemd/system/student-age.service
 
 [Unit]
 Description= Script Python app-student
